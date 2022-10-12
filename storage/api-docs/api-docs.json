@@ -1,0 +1,142 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Auto API for test",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://foundarium/api",
+            "description": "Auto API test server"
+        }
+    ],
+    "paths": {
+        "/all_autos": {
+            "get": {
+                "tags": [
+                    "Get"
+                ],
+                "description": "Show all autos",
+                "operationId": "autosAll",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/free_autos": {
+            "get": {
+                "tags": [
+                    "Get"
+                ],
+                "description": "Show all not assigned autos",
+                "operationId": "autosFree",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/assigned_autos": {
+            "get": {
+                "tags": [
+                    "Get"
+                ],
+                "description": "Show all assigned autos",
+                "operationId": "autosAssigned",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/delete_auto/{auto_id}": {
+            "delete": {
+                "tags": [
+                    "Delete"
+                ],
+                "description": "Show all assigned autos",
+                "operationId": "autoDelete",
+                "parameters": [
+                    {
+                        "name": "auto_id",
+                        "in": "path",
+                        "description": "Id of auto for delere",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "1"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "default": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        },
+        "/assign_user_to_auto": {
+            "post": {
+                "tags": [
+                    "Post"
+                ],
+                "operationId": "AssignUserToAuto",
+                "requestBody": {
+                    "required": true
+                },
+                "responses": {
+                    "default": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        },
+        "/unbind_user/{user_id}": {
+            "get": {
+                "tags": [
+                    "Get"
+                ],
+                "description": "Show all assigned autos",
+                "operationId": "userUnbind",
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "path",
+                        "description": "Id of user for unbind",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "1"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Get",
+            "description": "Get methods"
+        },
+        {
+            "name": "Delete",
+            "description": "Delete methods"
+        },
+        {
+            "name": "Post",
+            "description": "Post methods"
+        }
+    ]
+}
